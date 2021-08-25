@@ -16,41 +16,39 @@ inputText.addEventListener('keyup', event => {
 
 function deleteMovie(event) {
     let id = event.target.dataset.id;
-    console.log(id);
     allMovies.splice(id, 1);
     createMovieUI();
 }
 
 function handleChange(event) {
-    console.dir(event.target);
     let id = event.target.id;
     allMovies[id].watched = !allMovies[id].watched;
     createMovieUI();
 }
 
 function elm(type, attr = {}, ...children) {
-    let element = document.createElement(type);
+    let ele = document.createElement(type);
     for (let key in attr) {
         if (key.startsWith('data-')) {
-            element.setAttribute(key, attr[key]);
+            ele.setAttribute(key, attr[key]);
         } else if (key.startsWith('on')) {
             let eventName = key.slice(2);
-            element.addEventListener(eventName, attr[key]);
+            ele.addEventListener(eventName, attr[key]);
         } else {
-            element[key] = attr[key];
+            ele[key] = attr[key];
         }
     }
 
     children.forEach(child => {
         if (typeof child === "object") {
-            element.append(child);
+            ele.append(child);
         }
         if (typeof child === "string") {
             let node = document.createTextNode(child);
-            element.append(node);
+            ele.append(node);
         }
     });
-    return element;
+    return ele;
 }
 
 function createMovieUI() {
