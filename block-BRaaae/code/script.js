@@ -3,13 +3,13 @@ let inputText = document.querySelector('input[type="text"]');
 
 let allMovies = [];
 
-inputText.addEventListener('keyup', e => {
-    if (e.keyCode === 13) {
+inputText.addEventListener('keyup', event => {
+    if (event.keyCode === 13) {
         allMovies.push({
-            name: e.target.value,
+            name: event.target.value,
             watched: false
         })
-        e.target.value = "";
+        event.target.value = "";
         createMovieUI();
     }
 });
