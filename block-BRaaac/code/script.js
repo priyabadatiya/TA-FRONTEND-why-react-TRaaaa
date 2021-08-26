@@ -32,8 +32,8 @@ function elm(type, attr = {}, ...children) {
         if (key.startsWith('data-')) {
             ele.setAttribute(key, attr[key]);
         } else if (key.startsWith('on')) {
-            let eventName = key.slice(2);
-            ele.addEventListener(eventName, attr[key]);
+            let eventType = key.replace('on', '').toLowerCase();
+            ele.addEventListener(eventType, attr[key]);
         } else {
             ele[key] = attr[key];
         }
