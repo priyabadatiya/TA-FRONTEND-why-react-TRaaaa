@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Watch List</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="m-20">
+    <main class="flex justify-center">
+        <section class="w-1/4 flex flex-col bg-purple-500 p-5">
+            <h1 class="text-3xl font-bold text-center mb-10 text-white">Movie watch list</h1>
+            <input type="text" class="movieInput border-2 p-2" placeholder="Enter Movie Name">
+            <ul class="list text-white"></ul>
+        </section>
+    </main>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+        let movieInput = document.querySelector('.movieInput'); let list = document.querySelector('.list'); let allMovies = []; movieInput.addEventListener('keyup', (event) => { if (event.keyCode === 13) { allMovies.push({ name: event.target.value, watched: false,
+        }); createMovieUI(allMovies); event.target.value = ''; } }); function deleteMovie(event) { let id = event.target.id; allMovies.splice(id, 1); createMovieUI(allMovies); } function handleChange(event) { let id = event.target.id; allMovies[id].watched
+        = !allMovies[id].watched; createMovieUI(allMovies) }; let createElement = React.createElement; function createMovieUI(allMovies) { let movieList = allMovies.map((movie, i) => { return (
+        <li className="flex justify-between my-2 w-full border-b-2 border-dashed border-black p-2 rounded-lg" key={movie.name}>
+            <p className="text-lg font-bold">{movie.name}</p>
+            <button id={i} className="border px-1 py-1 bg-blue-600  text-white text-xs" onClick={handleChange}>
+                            {movie.watched ? "watched" : "To Watch"}
+                        </button>
+
+            <button id={i} className="text-red-500" onClick={deleteMovie}>X</button>
+        </li>
+        ); }); ReactDOM.render(movieList, list); } createMovieUI(allMovies);
+
+    </script>
+</body>
+
+</html>
