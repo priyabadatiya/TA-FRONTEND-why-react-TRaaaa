@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,29 +13,30 @@
     <script src="https://kit.fontawesome.com/474e96f807.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="root w-1/4 my-12 mx-auto p-6 bg-gray-300 rounded-lg"></div>
     <script type="text/babel">
         let cardInfo = {
-        title: 'City Lights in New York',
-        date: new Date('2017-01-26'),
-        comments: 67,
-        subTitle: 'The city that never sleeps.',
-        description:
-            'New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.',
-        category: 'photos',
-        imageURL:
-    'https://images.unsplash.com/photo-1610874933184-7728fd666162?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-};
+            title: 'City Lights in New York',
+            date: new Date('2017-01-26'),
+            comments: 67,
+            subTitle: 'The city that never sleeps.',
+            description:
+                'New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.',
+            category: 'photos',
+            imageURL:
+                'https://images.unsplash.com/photo-1610874933184-7728fd666162?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+        };
 
-let months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-       let elements = 
+        let months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+        let elements =
             <div className="relative bg-white">
-                <img src={cardInfo.imageURL} className="h-72" alt="img"/> 
+                <img src={cardInfo.imageURL} className="h-72" alt="img" />
                 <div className="w-16 h-16 text-white font-bold absolute bg-red-400 rounded-full right-8 top-8 flex flex-col justify-center items-center">
-                    <span>{cardInfo.date.getDay()}</span>
+                    <span>{cardInfo.date.getDate()}</span>
                     <span>{months[cardInfo.date.getMonth()]}</span>
-                    </div>
+                </div>
                 <div className="w-28 h-12 text-white font-bold absolute bg-red-400 top-60 flex flex-col justify-center items-center">
                     <span>{cardInfo.category.toUpperCase()}</span>
                 </div>
@@ -42,15 +44,16 @@ let months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OC
                 <h3 className="text-red-500 text-3xl text-left px-4">{cardInfo.subTitle}</h3>
                 <p className="text-left  text-custom  p-4">{cardInfo.description}</p>
                 <>
-                <span className="px-4 inline-block pb-4 text-custom"><i className="fas fa-history mr-2"></i>6 mins ago</span> 
-                <span className="text-custom ml-4"><i className="fas fa-comments mr-2"></i>{cardInfo.comments + " comments"}</span>
+                    <a className="px-4 inline-block pb-4 text-custom"><i className="fas fa-clock-o mr-2"></i>6 mins ago</a>
+                    <a className="text-custom ml-4"><i className="fas fa-comments mr-2"></i>{cardInfo.comments}Comments</a>
                 </>
             </div>
-            
-       
 
-       ReactDOM.render(elements, document.querySelector('.root'));
+
+
+        ReactDOM.render(elements, document.querySelector('.root'));
     </script>
 
 </body>
+
 </html>
