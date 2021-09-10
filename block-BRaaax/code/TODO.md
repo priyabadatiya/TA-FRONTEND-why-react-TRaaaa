@@ -1,5 +1,4 @@
 # Button Design System
-
 ## Properties That The Button Component Can Be Passed
 
 | Property         | Description                         | Type          | Required |
@@ -36,7 +35,6 @@
 />
 
 ```
-
 ### Demo
 
 ![Button Display](https://github.com/nnnkit/react-tasks/raw/master/button-types/buttons.png)
